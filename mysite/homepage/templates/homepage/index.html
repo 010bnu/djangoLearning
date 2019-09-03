@@ -1,0 +1,12 @@
+<h2>输入名字测你的前世在哪个朝代</h2>
+<input type=text></input>
+<div id="setnum03" class="number">---</div>
+    <script type="text/javascript">
+         //setInterval(displayNum3,100);
+         function displayNum3() {
+	     var dynasty = ['唐','宋','元','明','清']
+		 var s='前世在'+dynasty[Math.floor(Math.random() * 5)]+'朝哦';
+         document.getElementById("setnum03").innerHTML = s;
+         }
+    </script>
+<button onclick=displayNum3(),disabled='true'>确认</button>

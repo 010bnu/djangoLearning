@@ -1,0 +1,46 @@
+{% if movie_list %}
+    <body>
+    <form action="{% url 'movie:search' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="title" value="">
+    <input type="submit" value="搜索">
+    </form>
+    
+    
+    <table border="1">
+    <tr>
+        
+        <th>电影</th>
+        <th>年份</th>
+        <th>地区</th>
+        <th>导演</th>
+        <th>评分</th>
+        <th>选择删除</th>
+    </tr>
+    <form action="{% url 'movie:delete' %}" method="post">
+    {%csrf_token%}
+    {% for movie in movie_list %}
+        <tr>
+            
+            <td>{{ movie.title }}</td>
+            <td>{{ movie.year }}</td>
+            <td>{{ movie.area }}</td>
+            <td>{{ movie.doctor }}</td>
+            <td>{{ movie.rate }}</td>
+            <td><input type="checkbox" name="choice" id="choice{{ forloop.counter}}" value="{{ movie.id}}">
+        </tr>
+    {% endfor %}
+    
+    <input type="submit" value="删除电影">
+    </form>
+    
+    <button onclick="window.location.href='./add.html'">添加电影</button>
+    
+    <form action="{% url 'movie:plot' %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="统计作图">
+    </form>
+    </body>
+{% else %}
+    <p>无电影信息</p>
+{% endif %}

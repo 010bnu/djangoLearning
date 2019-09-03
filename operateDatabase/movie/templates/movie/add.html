@@ -1,0 +1,29 @@
+<h3>添加电影条目</h3>
+
+
+
+<form action="{% url 'movie:add' %}" method="post">
+{% csrf_token %}
+
+<table border="1">
+<tr>
+    <th>电影</th>
+    <th>年份</th>
+    <th>地区</th>
+    <th>导演</th>
+    <th>评分</th>
+</tr>
+
+
+<tr>
+    <td><input name="title" value=""></input></td>
+    <td><input name="year" value=""></input></td>
+    <td><input name="area" value=""></input></td>
+    <td><input name="doctor" value=""></input></td>
+    <td><input name="rate" value=""></input></td>
+    
+</tr>
+
+    
+<input type="submit" value="添加">
+</form>
